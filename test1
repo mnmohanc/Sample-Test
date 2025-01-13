@@ -1,0 +1,30 @@
+#!/bin/bash
+
+# Set the number of lines to read
+n=6
+
+# Set the file to read from
+file="test.txt"
+
+
+result=""
+
+
+result="(${result}"
+
+# Read the first n lines from the file
+i=0
+while read line && [ $i -lt $n ]; do
+  #echo "$line"
+  i=$((i+1))
+  result="${result}'${line}',"
+done < "$file"
+
+
+# Remove the last colon
+result="${result%,}"
+
+result="${result})"
+
+echo "$result"
+
