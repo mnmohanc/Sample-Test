@@ -1,0 +1,17 @@
+#!/bin/bash
+
+result=""
+
+
+result="(${result}"
+
+while read line; do
+  result="${result}'${line}',"
+done < "test.txt"
+
+# Remove the last colon
+result="${result%,}"
+
+result="${result})"
+
+echo "$result"
